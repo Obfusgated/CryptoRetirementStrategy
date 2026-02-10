@@ -1,0 +1,54 @@
+name: CryptoRetirementStrategy
+display_name: Crypto Retirement Exit Strategy Framework
+version: 0.1.0
+description: Open source framework for cryptocurrency retirement planning and exit strategy management
+
+authors:
+  - name: Crypto Retirement Team
+
+license:
+  name: MIT
+  text: |
+    MIT License
+
+keywords:
+  - crypto
+  - retirement
+  - blockchain
+  - exit-strategy
+  - portfolio-management
+  - risk-assessment
+
+python_requires: ">=3.8"
+
+dependencies:
+  - python-dotenv
+  - requests
+  - pandas
+  - numpy
+  - pydantic
+
+optional_dependencies:
+  dev:
+    - pytest
+    - black
+    - mypy
+    - pre-commit
+  mcp:
+    - httpx
+    openai
+
+scripts:
+  analyze: "src.analyze_portfolio:main"
+  recommend: "src.exit_strategy:main"
+  monitor: "src.market_monitor:main"
+
+readme: "README.md"
+repository: "https://github.com/Obfusgated/CryptoRetirementStrategy"
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.scripts]
+test = "pytest tests/"
+lint = "black src/"
