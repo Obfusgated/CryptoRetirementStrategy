@@ -1,0 +1,66 @@
+<div class="upload-container" id="drop-zone">
+  <div class="upload-icon">📊</div>
+  <h3>Load Your Tax Lots</h3>
+  <p>Drag and drop your <b>.csv</b> file here to calculate your HIFO exit strategy.</p>
+  <button class="upload-btn">Browse Files</button>
+  <input type="file" id="file-input" hidden accept=".csv">
+  <p class="privacy-note">🔒 Data remains local. We never see your crypto balances.</p>
+</div>
+
+<style>
+  .upload-container {
+    border: 2px dashed #34495e;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    background-color: #f8fafc;
+    transition: all 0.3s ease;
+    max-width: 500px;
+    margin: 20px auto;
+    font-family: 'Inter', sans-serif;
+  }
+  .upload-container.dragover {
+    background-color: #e2e8f0;
+    border-color: #27ae60;
+  }
+  .upload-icon { font-size: 3rem; margin-bottom: 10px; }
+  .upload-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .privacy-note { font-size: 0.8rem; color: #7f8c8d; margin-top: 15px; }
+</style>
+
+<script>
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+
+dropZone.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  dropZone.classList.add('dragover');
+});
+
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+
+dropZone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  dropZone.classList.remove('dragover');
+  const file = e.dataTransfer.files[0];
+  handleFile(file);
+});
+
+async function handleFile(file) {
+  try {
+    const data = await parseTaxLots(file);
+    console.log("Attack Strategy Initialized for:", data);
+    // Trigger UI update to show the HIFO Waterfall
+  } catch (err) {
+    alert("Error parsing CSV. Please use the template.");
+  }
+}
+</script>
