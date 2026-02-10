@@ -1,0 +1,21 @@
+# Ingress for Local Development (localhost access)
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: crypto-retirement-ingress
+  namespace: crypto-retirement
+  labels:
+    app: crypto-retirement
+spec:
+  rules:
+  - host: crypto-retirement.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: crypto-retirement-web
+            port:
+              number: 80

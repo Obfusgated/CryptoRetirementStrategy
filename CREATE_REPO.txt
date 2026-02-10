@@ -1,0 +1,38 @@
+# 📋 Create GitHub Repository - Instructions
+
+## Option 1: GitHub CLI (if available)
+
+```bash
+# Create repo
+gh repo create CryptoRetirementStrategy --public --description "Open-source crypto retirement withdrawal engine with HIFO optimization"
+
+# Push
+git push -u origin master
+```
+
+## Option 2: Manual GitHub Creation
+
+### Step 1: Create Repository on GitHub
+1. Go to https://github.com/new
+2. Repository name: `CryptoRetirementStrategy`
+3. Description: `Open-source crypto retirement withdrawal engine with HIFO optimization`
+4. Public/Private: Public (recommended for open-source)
+5. Initialize with: Git ignore (Python)
+6. License: MIT
+7. Click "Create repository"
+
+### Step 2: Push to GitHub
+
+```bash
+cd D:\gemini_crypto_retirement
+git push -u origin master
+```
+
+## Repository Details
+
+**Name:** CryptoRetirementStrategy  
+**Description:** Open-source crypto retirement withdrawal engine with HIFO optimization  
+**License:** MIT  
+**URL:** https://github.com/Obfusgated/CryptoRetirementStrategy
+
+After creating the repo, let me know and I'll push the code!
