@@ -153,7 +153,7 @@ class ExitStrategy:
         self,
         recommendation: ExitRecommendation,
         confirm: bool = False
-    ) ->.Dict:
+    ) -> Dict:
         """
         Execute exit operation (simulated)
 
